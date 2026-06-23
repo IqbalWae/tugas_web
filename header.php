@@ -13,7 +13,7 @@
 </head>
 <body>
 
-    <h1>Perpustakaan XYZ</h1>
+    <h1>Perpustakaan</h1>
     
     <nav>
         <a href="index.php?page=profil">Profil</a>
@@ -22,7 +22,7 @@
         <a href="index.php?page=pinjam_buku">Pinjam Buku</a>
         <a href="index.php?page=pengembalian_buku">Pengembalian Buku</a>
         <a href="index.php?page=buku_tamu">Buku Tamu</a>
-        <a href="https://wa.me/6285716397629" target="_blank">Contact (WhatsApp)</a>
+        <!-- <a href="https://wa.me/6285716397629" target="_blank">Contact (WhatsApp)</a> -->
     </nav>
 
     <div class="content">

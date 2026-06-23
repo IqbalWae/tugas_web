@@ -24,9 +24,22 @@ switch ($page) {
     case 'pengembalian_buku':
         include 'pengembalian_buku.php';
         break;
+        // ... case lain seperti profil, visi_misi, dll ...
+
     case 'buku_tamu':
-        include 'buku_tamu.php';
+        // Kita panggil form_tamu.php saat menu Buku Tamu diklik
+        include 'form_tamu.php'; 
         break;
+    case 'tampil_tamu_table':
+        // Menampilkan tabel data
+        include 'tampil_tamu_table.php';
+        break;
+    case 'edit_tamu':
+        // Menampilkan halaman edit
+        include 'edit_tamu.php';
+        break;
+
+    // ... default case ...
     default:
         echo "<h3>Maaf, halaman tidak ditemukan!</h3>";
         break;

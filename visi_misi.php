@@ -1,4 +1,4 @@
-<h2>Visi dan Misi Perpustakaan XYZ</h2>
+<h2>Visi dan Misi Perpustakaan</h2>
 
 <h3>Visi</h3>
 <p>Menjadi perpustakaan terdepan yang menginspirasi, mengedukasi, dan mendukung terciptanya masyarakat yang gemar membaca dan berpengetahuan luas.</p>
