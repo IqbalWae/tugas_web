@@ -1,8 +1,8 @@
 <?php
 //memanggil koneksi.php agar tersambung ke database
-include 'koneksi.php';
+require_once 'config/koneksi.php';
 // Memanggil bagian header
-include 'header.php';
+require_once 'views/layout/header.php';
 
 // Menangkap parameter 'page' dari URL. Default-nya adalah 'profil'
 $page = isset($_GET['page']) ? $_GET['page'] : 'profil';
@@ -10,33 +10,37 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'profil';
 // Logika include() berdasarkan menu yang dipilih
 switch ($page) {
     case 'profil':
-        include 'profil.php';
+        include 'views/profil.php';
         break;
     case 'visi_misi':
-        include 'visi_misi.php';
+        include 'views/visi_misi.php';
         break;
+        
     case 'daftar_buku':
-        include 'daftar_buku.php';
+        include 'views/buku/daftar_buku.php';
+        break;
+    case 'detail_buku': // Tambahkan baris ini
+        include 'views/buku/detail_buku.php';
         break;
     case 'pinjam_buku':
-        include 'pinjam_buku.php';
+        include 'views/buku/pinjam_buku.php';
         break;
     case 'pengembalian_buku':
-        include 'pengembalian_buku.php';
+        include 'views/buku/pengembalian_buku.php';
         break;
-        // ... case lain seperti profil, visi_misi, dll ...
+       
 
     case 'buku_tamu':
         // Kita panggil form_tamu.php saat menu Buku Tamu diklik
-        include 'form_tamu.php'; 
+        include 'views/tamu/form_tamu.php'; 
         break;
     case 'tampil_tamu_table':
         // Menampilkan tabel data
-        include 'tampil_tamu_table.php';
+        include 'views/tamu/tampil_tamu_table.php';
         break;
     case 'edit_tamu':
         // Menampilkan halaman edit
-        include 'edit_tamu.php';
+        include 'views/tamu/edit_tamu.php';
         break;
 
     // ... default case ...
@@ -46,5 +50,5 @@ switch ($page) {
 }
 
 // Memanggil bagian footer
-include 'footer.php';
+include 'views/layout/footer.php';
 ?>
