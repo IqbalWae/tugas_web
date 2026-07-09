@@ -52,8 +52,8 @@ $status_class = ($data['status'] == 'tersedia') ? 'badge-success' : 'badge-error
                 <div style="font-size: 16px; font-weight: 500;">BK-<?php echo str_pad($data['id_buku'], 4, '0', STR_PAD_LEFT); ?></div>
             </div>
             <div>
-                <div style="font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px; letter-spacing: 0.5px;">Lokasi Rak</div>
-                <div style="font-size: 16px; font-weight: 500;">Koleksi Umum</div>
+                <div style="font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px; letter-spacing: 0.5px;">Kategori</div>
+                <div style="font-size: 16px; font-weight: 500;"><?php echo $data['kategori']; ?></div>
             </div>
         </div>
         

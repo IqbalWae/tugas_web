@@ -28,6 +28,9 @@ switch ($page) {
     case 'pengembalian_buku':
         include 'views/buku/pengembalian_buku.php';
         break;
+    case 'tambah_buku':
+        include 'views/buku/tambah_buku.php';
+        break;
        
 
     case 'buku_tamu':
@@ -41,6 +44,9 @@ switch ($page) {
     case 'edit_tamu':
         // Menampilkan halaman edit
         include 'views/tamu/edit_tamu.php';
+        break;
+    case 'logout': // Tambahkan ini
+        include 'controllers/logout.php';
         break;
 
     // ... default case ...

@@ -8,11 +8,28 @@ if (isset($_GET['status']) && $_GET['status'] == 'sukses') {
 ?>
 
 <div class="card">
-    <h2 style="margin-bottom: 24px;">Pengembalian Buku</h2>
+    
+<h2 style="margin-bottom: 24px;">Pengembalian Buku</h2>
 
     <?php
-    $sql = "SELECT peminjaman.id_pinjam, peminjaman.id_buku, anggota.nama, buku.judul, peminjaman.tgl_pinjam, peminjaman.tgl_kembali 
-            FROM peminjaman JOIN anggota ON peminjaman.id_anggota = anggota.id_anggota JOIN buku ON peminjaman.id_buku = buku.id_buku";
+    $id_login = $_SESSION['id_anggota'];
+    $role_login = $_SESSION['role'];
+
+    // Cek Role: Jika Admin tampilkan semua, Jika User tampilkan miliknya saja
+    if ($role_login == 'admin') {
+        $sql = "SELECT peminjaman.id_pinjam, peminjaman.id_buku, anggota.nama, buku.judul, peminjaman.tgl_pinjam, peminjaman.tgl_kembali 
+                FROM peminjaman 
+                JOIN anggota ON peminjaman.id_anggota = anggota.id_anggota 
+                JOIN buku ON peminjaman.id_buku = buku.id_buku";
+    } else {
+        // Tambahan WHERE anggota.id_anggota = '$id_login' khusus untuk User
+        $sql = "SELECT peminjaman.id_pinjam, peminjaman.id_buku, anggota.nama, buku.judul, peminjaman.tgl_pinjam, peminjaman.tgl_kembali 
+                FROM peminjaman 
+                JOIN anggota ON peminjaman.id_anggota = anggota.id_anggota 
+                JOIN buku ON peminjaman.id_buku = buku.id_buku
+                WHERE peminjaman.id_anggota = '$id_login'";
+    }
+    
     $query = mysqli_query($koneksi, $sql);
 
     if (mysqli_num_rows($query) == 0) {
