@@ -10,6 +10,7 @@ if (session_status() === PHP_SESSION_NONE) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistem Informasi Perpustakaan</title>
     <link rel="stylesheet" href="aset/style.css">
+    <link rel="icon" type="image/png" href="aset/images/logo.png">
 </head>
 <body>
 
@@ -26,7 +27,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 <a href="index.php?page=daftar_buku" class="menu-link">Daftar Buku</a>
                 <a href="index.php?page=pinjam_buku" class="menu-link">Pinjam Buku</a>
                 <a href="index.php?page=pengembalian_buku" class="menu-link">Pengembalian Buku</a>
-                <a href="index.php?page=tambah_buku" class="menu-link" style="font-weight: 600; color: var(--primary);">Tambah Buku</a>
+                <a href="index.php?page=tambah_buku" class="menu-link">Tambah Buku</a>
                 <a href="index.php?page=tampil_tamu_table" class="menu-link">Menu Admin</a>
                 
             <?php elseif (isset($_SESSION['status']) && $_SESSION['status'] == "login" && $_SESSION['role'] == "user"): ?>
@@ -48,7 +49,7 @@ if (session_status() === PHP_SESSION_NONE) {
             <?php if(isset($_SESSION['status']) && $_SESSION['status'] == "login"): ?>
                 <a href="index.php?page=logout" class="btn-auth btn-logout">Logout (<?php echo htmlspecialchars($_SESSION['username']); ?>)</a>
             <?php else: ?>
-                <a href="views/login.php" class="btn-auth">Login</a>
+                <a href="index.php?page=login" class="btn-auth">Log in</a>
             <?php endif; ?>
         </div>
     </nav>

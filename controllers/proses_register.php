@@ -18,9 +18,9 @@ $query = mysqli_query($koneksi, "INSERT INTO anggota (no_induk, nama, alamat, no
 // Cek apakah query berhasil
 if($query){
     // Jika berhasil, arahkan ke halaman login dengan pesan sukses
-    header("location:../views/login.php?pesan=daftar_sukses");
+    header("location:../index.php?page=login&pesan=daftar_sukses");
 } else {
     // Jika gagal, kembalikan ke halaman daftar
-    header("location:../views/register.php?pesan=gagal");
+   header("location:../index.php?page=register&pesan=gagal");
 }
 ?>

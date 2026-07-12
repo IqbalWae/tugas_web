@@ -35,6 +35,6 @@ if($cek > 0){
     
 } else {
     // Jika data tidak ditemukan, kembalikan ke form login dengan parameter pesan=gagal
-    header("location:../views/login.php?pesan=gagal");
+    header("location:../index.php?page=login&pesan=gagal");
 }
 ?>

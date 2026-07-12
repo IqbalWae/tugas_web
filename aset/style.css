@@ -14,6 +14,7 @@
     /* Putih bersih */
     --hairline: #e5e3df;
     /* Garis tepi */
+    --c-texTer: #a19e99;
 
     --radius-md: 8px;
     --radius-lg: 12px;
@@ -37,6 +38,15 @@ h3 {
     font-weight: 600;
     letter-spacing: -0.5px;
     color: var(--ink);
+}
+
+h4 {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 26px;
+    margin: 0px;
+    text-wrap: balance;
+    color: var(--c-texTer);
 }
 
 a {
@@ -326,7 +336,7 @@ select:focus {
 .nav-left {
     display: flex;
     align-items: center;
-    flex: 1; 
+    flex: 1;
 }
 
 /* Tengah: Jarak antar menu */
@@ -334,7 +344,7 @@ select:focus {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 24px; 
+    gap: 24px;
 }
 
 /* Kanan: Ambil sisa ruang, sejajarkan ke kanan */
@@ -343,12 +353,20 @@ select:focus {
     align-items: center;
     justify-content: flex-end;
     gap: 20px;
-    flex: 1; 
+    flex: 1;
 }
 
 .logo-wrapper {
     display: flex;
     align-items: center;
+}
+
+.logo-login {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 /* Style tombol login/logout */
@@ -359,12 +377,138 @@ select:focus {
     color: var(--text-muted);
     transition: color 0.2s;
 }
+
 .btn-auth:hover {
     color: var(--ink);
 }
+
 .btn-logout {
-    color: #dc2626; 
+    color: #dc2626;
 }
+
 .btn-logout:hover {
     color: #991b1b;
+}
+
+/* --- 9. HALAMAN LOGIN & REGISTER --- */
+.login-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+    background-color: var(--surface);
+}
+
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 40px 32px;
+}
+
+.register-card {
+    max-width: 450px;
+}
+
+/* Khusus form register agak lebar */
+
+.login-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.login-header h2 {
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+
+.login-header p {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin: 0;
+}
+
+.btn-login {
+    width: 100%;
+    margin-top: 16px;
+    font-size: 15px;
+    padding: 12px;
+}
+
+/* Input Password dengan Toggle */
+.password-container {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary);
+    user-select: none;
+}
+
+/* Alert Pesan */
+.alert {
+    padding: 12px 16px;
+    border-radius: var(--radius-md);
+    font-size: 13px;
+    margin-bottom: 24px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.alert-error {
+    background-color: #fee2e2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+}
+
+.alert-warning {
+    background-color: #fef3c7;
+    color: #b45309;
+    border: 1px solid #fde68a;
+}
+
+.alert-success {
+    background-color: #d1fae5;
+    color: #047857;
+    border: 1px solid #a7f3d0;
+}
+
+/* Elemen Form */
+.form-row {
+    display: flex;
+    gap: 16px;
+}
+
+.form-row .form-group {
+    width: 100%;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 12px;
+    margin: 24px 0;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--hairline);
+}
+
+.divider:not(:empty)::before {
+    margin-right: .5em;
+}
+
+.divider:not(:empty)::after {
+    margin-left: .5em;
 }

@@ -65,11 +65,13 @@ $status_class = ($data['status'] == 'tersedia') ? 'badge-success' : 'badge-error
             <a href="index.php?page=daftar_buku" class="btn" style="background-color: var(--canvas); color: var(--ink); border: 1px solid var(--hairline);">Kembali</a>
             
             <?php if ($data['status'] == 'tersedia') { ?>
-                <!-- <a href="index.php?page=pinjam_buku" class="btn btn-primary">Pinjam Buku Ini</a> -->
-                 <a href="index.php?page=pinjam_buku&id=<?php echo $data['id_buku']; ?>"
-                    class="btn btn-primary">
-                        Pinjam Buku Ini
-</a>
+                
+                <?php if (isset($_SESSION['status']) && $_SESSION['status'] == 'login') { ?>
+                    <a href="index.php?page=pinjam_buku&id=<?php echo $data['id_buku']; ?>" class="btn btn-primary">Pinjam Buku Ini</a>
+                <?php } else { ?>
+                    <a href="index.php?page=login&pesan=belum_login" class="btn btn-primary">Login untuk Meminjam</a>
+                <?php } ?>
+
             <?php } else { ?>
                 <button class="btn" style="background-color: var(--surface); color: var(--text-muted); border: 1px solid var(--hairline); cursor: not-allowed;" disabled>Sedang Dipinjam</button>
             <?php } ?>
