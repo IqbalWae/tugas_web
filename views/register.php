@@ -1,5 +1,5 @@
 <div class="login-wrapper">
-    <div class="card login-card register-card">
+    <div class=" login-card register-card">
         <div class="login-header">
             <div class="logo-login">
                 <img src="aset/images/Logo.png" alt="Logo" width="40">
@@ -9,8 +9,13 @@
         </div>
 
         <?php
-        if (isset($_GET['pesan']) && $_GET['pesan'] == "gagal") {
-            echo "<div class='alert alert-error'>Pendaftaran gagal! Silakan coba lagi.</div>";
+        if (isset($_GET['pesan'])) {
+            if ($_GET['pesan'] == "gagal") {
+                echo "<div class='alert alert-error'>Pendaftaran gagal! Silakan coba lagi.</div>";
+            } else if ($_GET['pesan'] == "username_terpakai") {
+                // Pesan khusus jika username sudah ada
+                echo "<div class='alert alert-warning'>Username sudah terdaftar! Silakan gunakan username lain.</div>";
+            }
         }
         ?>
 

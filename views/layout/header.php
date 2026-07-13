@@ -24,7 +24,7 @@ if (session_status() === PHP_SESSION_NONE) {
     </div>
     
     <div class="mobile-top-actions">
-        <a href="index.php?page=buku_tamu" class="btn btn-primary btn-tamu-mobile" style="padding: 6px 12px; font-size: 13px;">Isi Buku Tamu</a>
+        <a href="index.php?page=buku_tamu" class="btn btn-primary btn-tamu-mobile" style="padding: 6px 12px; font-size: 13px;">Kotak Kritik/Saran</a>
         
         <button class="menu-toggle" id="menuToggle">
             <span></span>

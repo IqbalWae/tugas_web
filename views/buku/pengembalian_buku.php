@@ -40,17 +40,19 @@ if (isset($_GET['status']) && $_GET['status'] == 'sukses') {
             <a href="index.php?page=pinjam_buku" class="btn btn-primary">Buat Peminjaman Baru</a>
         </div>
     <?php } else { ?>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nama Peminjam</th>
-                    <th>Judul Buku</th>
-                    <th>Tgl Pinjam</th>
-                    <th>Batas Kembali</th>
-                    <th style="text-align: right;">Action</th>
-                </tr>
-            </thead>
-            <tbody>
+
+                <div class="table-responsive">
+            <table style="width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 14px;">
+                <thead>
+                    <tr style="border-bottom: 1px solid var(--hairline); text-align: left; color: var(--text-muted);">
+                        <th>Nama Peminjam</th>
+                        <th>Judul Buku</th>
+                        <th>Tgl Pinjam</th>
+                        <th>Batas Kembali</th>
+                        <th style="text-align: right;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
                 <?php while ($data = mysqli_fetch_array($query)) { ?>
                     <tr>
                         <td style="font-weight: 500;"><?php echo $data['nama']; ?></td>
