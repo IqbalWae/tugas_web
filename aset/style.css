@@ -322,7 +322,11 @@ select:focus {
     line-height: 1.5;
 }
 
-/* --- 8. NAVIGASI / HEADER --- */
+/* =========================================
+   8. NAVIGASI / HEADER (DESKTOP & MOBILE)
+========================================= */
+
+/* --- Tampilan Dasar (Desktop) --- */
 .top-nav {
     display: flex;
     justify-content: space-between;
@@ -330,64 +334,119 @@ select:focus {
     padding: 12px 24px;
     background-color: var(--canvas);
     border-bottom: 1px solid var(--hairline);
+    position: relative;
+    z-index: 1000;
 }
 
-/* Kiri: Ambil sisa ruang, sejajarkan ke kiri */
-.nav-left {
+.nav-left { display: flex; align-items: center; flex: 1; }
+
+.nav-menu {
     display: flex;
+    flex: 2; 
     align-items: center;
-    flex: 1;
 }
 
-/* Tengah: Jarak antar menu */
 .nav-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
+    display: flex; justify-content: center; align-items: center; gap: 24px; flex: 1; 
 }
 
-/* Kanan: Ambil sisa ruang, sejajarkan ke kanan */
 .nav-right {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 20px;
-    flex: 1;
+    display: flex; justify-content: flex-end; align-items: center; gap: 20px; flex: 1; 
 }
 
-.logo-wrapper {
-    display: flex;
-    align-items: center;
-}
+/* Sembunyikan grup aksi mobile di desktop */
+.mobile-top-actions { display: none; }
+.btn-tamu-desktop { display: inline-block; }
 
-.logo-login {
-    display: flex;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    flex-wrap: wrap;
-}
+.btn-auth { font-weight: 500; font-size: 14px; text-decoration: none; color: var(--text-muted); transition: color 0.2s; }
+.btn-auth:hover { color: var(--ink); }
+.btn-logout { color: #dc2626; }
+.btn-logout:hover { color: #991b1b; }
 
-/* Style tombol login/logout */
-.btn-auth {
-    font-weight: 500;
-    font-size: 14px;
-    text-decoration: none;
-    color: var(--text-muted);
-    transition: color 0.2s;
+.menu-toggle {
+    display: none; 
+    flex-direction: column; justify-content: space-between;
+    width: 26px; height: 18px;
+    background: transparent; border: none; cursor: pointer; padding: 0;
 }
+.menu-toggle span { width: 100%; height: 2px; background-color: var(--ink); border-radius: 4px; transition: all 0.3s ease; }
 
-.btn-auth:hover {
-    color: var(--ink);
+.overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+    background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(2px);
+    opacity: 0; visibility: hidden; transition: 0.3s ease; z-index: 998;
 }
+.overlay.active { opacity: 1; visibility: visible; }
 
-.btn-logout {
-    color: #dc2626;
-}
+/* --- Tampilan Responsif Ala Notion (Mobile Max 768px) --- */
+@media (max-width: 768px) {
+    /* Menampilkan tombol buku tamu + hamburger di atas */
+    .mobile-top-actions {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        z-index: 1001; /* Harus di atas segalanya */
+    }
+    
+    .menu-toggle { display: flex; }
+    .btn-tamu-desktop { display: none; } /* Sembunyikan tombol tamu yg ada di dalam menu */
 
-.btn-logout:hover {
-    color: #991b1b;
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        left: -100%; /* Sembunyikan ke kiri penuh */
+        width: 100%; /* Penuhi lebar layar 100% */
+        height: 100vh; /* Penuhi tinggi layar 100% */
+        background-color: var(--canvas);
+        flex-direction: column;
+        justify-content: space-between; /* Kunci agar login terdorong ke bawah */
+        padding: 80px 24px 40px; /* Padding atas besar agar tidak nabrak logo */
+        box-sizing: border-box;
+        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 999;
+        overflow-y: auto;
+    }
+
+    /* Memunculkan Menu */
+    .nav-menu.active { left: 0; }
+
+    .nav-center {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 24px;
+        flex: 1; /* Biarkan menu utama mengisi ruang kosong di tengah */
+    }
+    .menu-link { font-size: 16px; padding: 8px 0; width: 100%; border-bottom: 1px solid var(--surface); }
+    
+    /* Mendorong login/logout ke paling bawah layar */
+    .nav-right {
+        flex-direction: column;
+        width: 100%;
+        margin-top: auto; 
+        border-top: 1px solid var(--hairline);
+        padding-top: 24px;
+        justify-content: flex-end;
+    }
+
+    /* Desain tombol auth (login/logout) agar penuh memanjang di bawah */
+    .nav-right .btn-auth {
+        width: 100%;
+        text-align: center;
+        display: block;
+        box-sizing: border-box;
+        padding: 14px;
+        border: 1px solid var(--hairline);
+        border-radius: var(--radius-md);
+        font-weight: 600;
+        background-color: var(--surface);
+    }
+    .nav-right .btn-logout { border-color: #fecaca; background-color: #fef2f2; }
+
+    /* Animasi silang (X) */
+    .menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .menu-toggle.active span:nth-child(2) { opacity: 0; }
+    .menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 }
 
 /* --- 9. HALAMAN LOGIN & REGISTER --- */

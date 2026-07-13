@@ -2,5 +2,6 @@
         <p>&copy; <?php echo date("Y"); ?> Sistem Informasi Perpustakaan.</p>
          <a  class="text-sm text-gray-500 font-medium" href="https://wa.me/6285716397629" target="_blank">Contact (WhatsApp)</a>
     </footer>
+       <script src="aset/hamburger.js"></script>
 </body>
 </html>
